@@ -75,7 +75,7 @@ USB 객체가 생성되었습니다.
 64GB USB 
 '''
 
-class USB():
+class USB:
     def __init__(self, capacity):
         self.capacity = capacity
         print('USB 객체가 생성되었습니다.')
@@ -85,3 +85,19 @@ class USB():
 
 usb = USB(64)
 usb.get_info()
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+        print(f'{self.name} is born')
+
+    def __del__(self):
+        print(f'{self.name} is dead')
+
+man = Person('james')
+woman = Person('emily')
+del man
+print('위 문장에서 man 객체 소멸시켰습니다.')
+'''
+emily is dead. 맨 마지막에 이 친구가 나오는 이유 -> 프로그램 종료할 때 원래 객체들 다 소멸시킵니다.
+'''
