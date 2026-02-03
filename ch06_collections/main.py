@@ -278,8 +278,7 @@ elif month_int in [ 1, 3, 5, 7, 8, 10, 12 ]:
 
 조사된 수학여행지는 {'제주', '민속촌'}입니다.
 조사된 수학여행지는 ['제주', '민속촌']입니다.
-
-```
+'''
 # field_trip_set = set()
 # num_of_students = 3
 # for _ in range(num_of_students):
@@ -288,12 +287,12 @@ elif month_int in [ 1, 3, 5, 7, 8, 10, 12 ]:
 #
 # print(f'조사된 수학여행지는 {field_trip_set}입니다.')
 # print(f'조사된 수학여행지는 {list(field_trip_set)}입니다.')
-```
+'''
 
 짝수만 추출하기
 
 사용자로부터 임의의 양의 정수를 입력 받고, 그 정수만큼 숫자를 입력 받아 list에 저장하세요.
-이 후 저장된 숫자 중 짝수만 새로운 list에 저장하여 출력하는 프로그램을 작성하세요.us
+이 후 저장된 숫자 중 짝수만 새로운 list에 저장하여 출력하는 프로그램을 작성하세요.
 
 실행 예
 몇 개의 숫자를 입력할까요? >>> 5
@@ -305,69 +304,149 @@ elif month_int in [ 1, 3, 5, 7, 8, 10, 12 ]:
 입력 받은 숫자는 [10, 15, 20, 25, 30]입니다.
 입력 받은 숫자들 중 짝수는 [10, 20, 30]입니다.
 '''
-
-# set1 = set({})
+# li_original = []
+# li_even = []
+# n = int(input('몇 개의 숫자를 입력할까요? >>> '))
 #
-# for i in range(3):
-#     tour = input('희망하는 수학여행지를 입력하세요 >>> ')
-#     set1.add(tour)
+# for i in range(n): # 이렇게 쓸 경우 i값은 0부터 n-1까지라는 것을 알 수 있습니다.
+#     num = int(input(f'{i+1}번째 숫자를 입력하세요 >>> '))
+#     li_original.append(num)
+#     if num % 2 == 0:
+#         li_even.append(num)
 #
-# print(set1)
-#
-# list1 = []
-# list2 = []
-# inputnum = int(input('몇 개의 숫자를 입력할까요 >>>'))
-# for i in range(inputnum):
-#     num = input(f'{i+1}번째 숫자를 입력하세요 >>> ')
-#     list1.append(num)
-#     if int(num) % 2 == 0:
-#         list2.append(num)
-# print(f'입력 받은 숫자는 {list1}입니다.')
-# print(f'입력 받은 숫자들 중 짝수는 {list2}입니다.')
+# print(f'입력 받은 숫자는 {li_original}입니다.')
+# print(f'입력 받은 숫자들 중 짝수는 {li_even}입니다.')
 
 
-# 딕셔너리 기반의 연락처 관리
-#
-# 사용자로부터 3 명의 이름과 전화번호를 입력 받아 딕셔너리에 저장한 뒤, 입력한 정보를 추출하는
-# 프로그램을 작성하시오.
-#
-# 실행 예
-# 1 번째 사람의 이름의 입력하세요 >>> 김일
-# 1 번째 사람의 연락처를 입력하세요 >>> 010-1234-5678
-# 2 번째 사람의 이름의 입력하세요 >>> 김이
-# 2 번째 사람의 연락처를 입력하세요 >>> 010-2345-6789
-# 3 번째 사람의 이름의 입력하세요 >>> 김삼
-# 3 번째 사람의 연락처를 입력하세요 >>> 010-3456-7890
-#
-# 입력 받은 연락처는 {'김일':'010-1234-5678', '김이':'010-2345-6789', '김삼':'010-3456-7890'}입니다.
+'''
+가독성은 버렸지만 굴러는 가는 코드 예시들
+'''
+# for i in range(int(input('몇 개의 숫자를 입력할까요? >>> '))):
+#     num = int(input(f'{i+1}번째 숫자를 입력하세요 >>> '))
+#     li_original.append(num)
+# print(li_original)
 
-user = {}
-print(type(user))
+# for number in range(1, n+1):
+#     num = int(input(f'{number}번째 숫자를 입력하세요 >>> '))
+#     li_original.append(num)
+#
+# print(li_original)
 
-for i in range(3):
-    name = input(f'{i+1} 번째 사람의 이름을 입력하세요 >>> ')
-    phone = input(f'{i+1} 번째 사람의 연락처를 입력하세요 >>> ')
-    user[name] = phone
-print(user)
+'''
+딕셔너리 기반의 연락처 관리
 
-# 식사 후에는 collections + function
+사용자로부터 3 명의 이름과 전화번호를 입력 받아 딕셔너리에 저장한 뒤, 입력한 정보를 추출하는
+프로그램을 작성하시오.
+
+실행 예
+1 번째 사람의 이름의 입력하세요 >>> 김일
+1 번째 사람의 연락처를 입력하세요 >>> 010-1234-5678
+2 번째 사람의 이름의 입력하세요 >>> 김이
+2 번째 사람의 연락처를 입력하세요 >>> 010-2345-6789
+3 번째 사람의 이름의 입력하세요 >>> 김삼
+3 번째 사람의 연락처를 입력하세요 >>> 010-3456-7890
+
+입력 받은 연락처는 {'김일':'010-1234-5678', '김이':'010-2345-6789', '김삼':'010-3456-7890'}입니다.
+'''
+# phones = {}
+# num_of_people = 3
+# for i in range(num_of_people):
+#     dict_key = input(f'{i+1} 번째 사람의 이름을 입력하세요 >>> ')
+#     dict_value = input(f'{i+1} 번째 사람의 연락처를 입력하세요 >>> ')
+#     phones[dict_key] = dict_value
+# print(f'입력 받은 연락처는 {phones}입니다.')
+'''
+collections + function
+
+숫자를 입력한 횟수만큼 비어있는 list에 숫자를 추가하기
+문제 : 비어있는 numbers1을 선언하고, 그 안에 입력 받은 횟수만큼 숫자를 추가하시오.
+
+함수 정의 : add_numbers()....
+매개 변수 : 정수 n
+
+함수 호출
+add_numbers1(last_num)          # call2() 유형
+print(add_numbers2(last_num))   # call4() 유형
+
+실행 예
+숫자 몇 까지 입력하시겠습니까? >>> 10
+[1,2,3,4,5,6,7,8,9,10]
+[1,2,3,4,5,6,7,8,9,10]
+'''
+# def add_numbers1(n):
+#     numbers = []
+#     for i in range(n):
+#         numbers.append(i+1)
+#     print(numbers)
 #
-# 숫자를 입력한 횟수만큼 비어있는 list에 숫자를 추가하기
-# 문제 : 비어있는 numbers1을 선언하고, 그 안에 입력 받은 횟수만큼 숫자를 추가하시오.
 #
-# 함수 정의 : add_numbers()
-# 매개 변수 : 정수 n
+# last_num = int(input('숫자 몇 까지 입력하시겠습니까? >>> '))
+# add_numbers1(last_num)
 #
-# 함수 호출
-# add_numbers1(last_num)          # call2() 유형
-# print(add_numbers2(last_num))   # call4() 유형
+# def add_numbers2(n):
+#     numbers = []
+#     for i in range(n):
+#         numbers.append(i+1)
+#     return numbers
 #
-# 실행 예
-# 숫자 몇 까지 입력하시겠습니까? >>> 10
-# [1,2,3,4,5,6,7,8,9,10]
-# [1,2,3,4,5,6,7,8,9,10]
+# print(f'{add_numbers2(last_num)} 결과값을 가집니다.')
+'''
+예를 들어 hello = ['안', '녕', '하', '세', '요']라는 list가 있다고 가정했을 때,
+add_numbers3(10, hello)를 호출하면
+[1,2,3,4,5,6,7,8,9,10,'안','녕','하','세','요']
+라는 결과값을 만드는 함수를 정의한다면 어떻게 할 수 있을지 고민해보세요.
+'''
+# def add_numbers3(n, temp_list):
+#     numbers = []
+#     for i in range(n):
+#         numbers.append(i+1)
+#     for letter in temp_list:
+#         numbers.append(letter)
+#     print(numbers)
 #
-# 예를 들어 hello = ['안', '녕', '하', '세', '요']라는 list가 있다고 가정했을 때,
-# add_numbers3(10, hello)를 호출하면
-# [1,2,3,4,5,6,7,8,9,10,'안','녕','하','세','요']
-# 라는 결과값을 만드는 함수를 정의한다면 어떻게 할 수 있을지 고민해보세요.
+# def add_numbers4(n, temp_list):
+#     for i in range(n):
+#         temp_list.insert(i, i+1)        # i 번지에 i+1값을 더해주니까 0 번지에 1 더해주고, 1번지에 2 더해주고, ... 10까지 가게 됩니다.
+#     print(temp_list)
+#
+# add_numbers3(10, ['안', '녕'])
+# add_numbers4(10, ['안', '녕'])
+'''
+짝수와 홀수의 개수 세기
+list를 입력 받아 짝수와 홀수의 개수를 세는 함수를 작성하시오.
+
+함수 정의
+함수 이름 : count_even_odd
+매개변수 : list인 numbers(요소는 모두 정수일 것)
+
+함수 호출
+count_even_odd([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+실행 예
+짝수의 개수 : 5개
+홀수의 개수 : 5개
+'''
+
+def count_even_odd1(list):
+    even = 0
+    odd = 0
+    for i in range(len(list)):
+        if list[i] % 2 == 0:
+            even += 1
+        else:
+            odd += 1
+    print(f'짝수의 개수 : {even}개')
+    print(f'홀수의 개수 : {odd}개')
+
+list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+count_even_odd1(list)
+
+def count_even_odd2(list):
+    even_num = 0
+    for l in list:
+        if l % 2 == 0:
+            even_num += 1
+    print(f'짝수의 개수 : {even_num}개')
+    print(f'홀수의 개수 : {len(list) - even_num}개')
+
+count_even_odd2(list)
